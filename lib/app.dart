@@ -1,8 +1,8 @@
 import 'package:ddaliveryflutter/view/login/login.dart';
 import 'package:ddaliveryflutter/view/login/login_page.dart';
+import 'package:ddaliveryflutter/view/main/main.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'route/route.dart' as route;
 
 class SimpleBlocDelegate extends BlocDelegate {
   @override
@@ -34,24 +34,25 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
-      providers: [
-        BlocProvider<LoginBloc>(
-          create: (context) => LoginBloc(),
-        )
-      ],
-      child: MaterialApp(
-        title: '따리버리',
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-          visualDensity: VisualDensity.adaptivePlatformDensity,
-        ),
-        initialRoute: "/",
-        routes: {
-            "/" : (context) => LoginPage(),
-        },
-      )
-    );
+        providers: [
+          BlocProvider<LoginBloc>(
+            create: (context) => LoginBloc(),
+          ),
+          BlocProvider<MainBloc>(
+            create: (context) => MainBloc(),
+          )
+        ],
+        child: MaterialApp(
+          title: '따리버리',
+          theme: ThemeData(
+            primarySwatch: Colors.blue,
+            visualDensity: VisualDensity.adaptivePlatformDensity,
+          ),
+          initialRoute: "/login",
+          routes: {
+            "/login": (context) => LoginPage(),
+            "/main": (context) => MainPage(),
+          },
+        ));
   }
 }
-
-

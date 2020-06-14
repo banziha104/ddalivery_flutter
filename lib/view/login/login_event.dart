@@ -11,13 +11,13 @@ class LoginEvent extends Equatable{
 class EditEvent extends LoginEvent{
   String text;
 
-  EditEvent({this.text});
+  EditEvent.withText(text){this.text = text;}
 }
 
 class EditIdEvent extends EditEvent{
-
+  EditIdEvent.withText(text) : super.withText(text);
 }
 
 class EditPwEvent extends EditEvent{
-
+  EditPwEvent.withText(text) : super.withText(text);
 }

@@ -1,7 +1,4 @@
-import 'package:dart_json_mapper/dart_json_mapper.dart';
 import 'package:ddaliveryflutter/view/login/login.dart';
-import 'package:ddaliveryflutter/view/login/login_page.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'login_event.dart';
